@@ -1,22 +1,16 @@
 import './App.css';
 import Logo from './componentes/index.js';
+import OpcoesHeader from './componentes/OpcoesHeader/index.js';
 import perfil from './imagens/perfil.svg'
 import sacola from './imagens/sacola.svg'
 
-const textoOpcoes = ['CATEGORIAS', 'FAVORITOS', 'MINHA ESTANTE'];
 const icones = [perfil, sacola]
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
         <Logo></Logo>
-        <ul className='opcoes'>
-          {/* exemplo de refatoração melhor que usar varios li */}
-          {textoOpcoes.map((texto) => (
-            <li className='opcao'><p>{texto}</p></li>
-          ))}
-          {/* O react pega o array de <li> que o map gerou e redenriza tudo dentro da <ul> */}
-        </ul>
+        <OpcoesHeader></OpcoesHeader>
         <ul className='icones'>
           {icones.map((icone) => (
             <li className='icone'><img src={icone}></img></li>
