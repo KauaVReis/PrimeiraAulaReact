@@ -10,6 +10,7 @@ width: 200px;
 color: #fff;
 font-size: 16px;
 margin-bottom: 10px;
+    text-align: center;
 
 &&::placeholder{
 color: #FFF;

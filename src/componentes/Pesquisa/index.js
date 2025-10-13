@@ -1,11 +1,36 @@
 import Input from '../Input/index.js'
+import styled from 'styled-components';
+import { useState } from 'react';
+
+const PesquisaContainer = styled.section`
+    background-image: linear-gradient(90deg, #002f52 35%, #326589 165%);
+    color: #fff;
+    text-align: center;
+    padding: 35px 0;
+    height: 270px;
+    width: 100%;
+`
+const Titulo = styled.h2`
+    color:#FFF;
+    font-size: 36px;
+    text-align: center;
+    width: 100%;
+`
+
+const Subtitulo = styled.h3`
+    font-size: 16px;
+    font-weight: 500px;
+    margin-bottom: 40px;
+`
 function Pesquisa() {
+    const [textoDigitado, setTextoDigitado] = useState('');
     return (
-        <section>
-            <h2>Ja sabe por onde começar?</h2>
-            <h3>Encontre seu livro em nossa estante</h3>
-            <Input placeholder="Escreva sua próxima leitura:"/>
-        </section>
+        <PesquisaContainer>
+            <Titulo>Ja sabe por onde começar?</Titulo>
+            <Subtitulo>Encontre seu livro em nossa estante</Subtitulo>
+            <Input placeholder="Escreva sua próxima leitura:" onBlur={evento => setTextoDigitado(evento.target.value)}/>
+            <p>{textoDigitado}</p>
+        </PesquisaContainer>
     )
 }
 
