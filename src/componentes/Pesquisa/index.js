@@ -1,6 +1,7 @@
 import Input from '../Input/index.js'
 import styled from 'styled-components';
 import { useState } from 'react';
+import { livros } from './dadosPesquisa.js'
 
 const PesquisaContainer = styled.section`
     background-image: linear-gradient(90deg, #002f52 35%, #326589 165%);
@@ -19,17 +20,52 @@ const Titulo = styled.h2`
 
 const Subtitulo = styled.h3`
     font-size: 16px;
-    font-weight: 500px;
+    font-weight: 500;
     margin-bottom: 40px;
 `
+const Resultado = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    p{
+        width:200px;
+    }
+    img{
+        width:100px;
+    }
+    &:hover{
+        border: 1px solid white;
+    }
+`
 function Pesquisa() {
-    const [textoDigitado, setTextoDigitado] = useState('');
+    const [LivroPesquisados, setLivroPesquisados] = useState([]);
+    console.log(LivroPesquisados)
     return (
         <PesquisaContainer>
             <Titulo>Ja sabe por onde começar?</Titulo>
             <Subtitulo>Encontre seu livro em nossa estante</Subtitulo>
-            <Input placeholder="Escreva sua próxima leitura:" onBlur={evento => setTextoDigitado(evento.target.value)}/>
-            <p>{textoDigitado}</p>
+            <Input placeholder="Escreva sua próxima leitura:" onChange={evento => {
+                const textoDigitado = evento.target.value
+                if (textoDigitado) {
+                    const resultadoPesquisa = livros.filter(livro => livro.nome.includes(textoDigitado))
+                    setLivroPesquisados(resultadoPesquisa);
+                } else {
+                    setLivroPesquisados([]);
+                }
+
+                // Codigo anterior  <Input placeholder="Escreva sua próxima leitura:" onChange={evento => setLivroPesquisados(evento.target.value)}
+            }}
+            />
+
+            {LivroPesquisados.map(livro => (
+                <Resultado>
+                    <img src={livro.src} />
+                    <p>{livro.nome}</p>
+                </Resultado>
+            ))}
         </PesquisaContainer>
     )
 }
