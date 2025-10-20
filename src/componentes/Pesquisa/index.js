@@ -32,9 +32,14 @@ const Resultado = styled.div`
 
     p{
         width:200px;
-    }
+        z-index: 2;
+        background-color: white;
+        color: black;
+        width:100px;
+        }
     img{
         width:100px;
+        z-index: 2;
     }
     &:hover{
         border: 1px solid white;

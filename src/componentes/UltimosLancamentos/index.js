@@ -5,6 +5,7 @@ import { Titulo } from '../Titulo';
 import { CardRecomenda } from '../CardRecomenda';
 import imagemLivro from '../../imagens/livro2.png';
 import imagemLivro2 from '../../imagens/livro3.png';
+import imagemLivro3 from '../../imagens/livro4.png';
 const UltimosLancamentosContainer = styled.section`
     background-color: #EBECEE;
     padding-bottom: 20px;
@@ -52,6 +53,11 @@ function UltimosLancamentos() {
             subtitulo={"One piece vol 105"} 
             descricao={"A formação dos Quatro Imperadores mudou e, agora, Luffy é o novo membro desse seleto grupo de piratas! Contudo, com a chegada de uma nova era, o mundo começa a mudar drasticamente enquanto o bando deixa o País de Wano... Que aventuras estão esperando por eles?! Uma nova viagem começa agora!!"} 
             img={imagemLivro2}/>
+             <CardRecomenda 
+            titulo={"Talve você se interesse por"} 
+            subtitulo={"One piece vol 113"} 
+            descricao={"O Volume 113 está previsto para ser lançado em 4 de novembro de 2025."} 
+            img={imagemLivro3}/>
         </UltimosLancamentosContainer >
     )
 }
